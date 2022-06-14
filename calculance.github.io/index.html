@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/33e751bc34.js" crossorigin="anonymous"></script>
+    <title>Calculance</title>
+</head>
+<body>
+    <div class="container">
+        <header class="encabezado">
+            <button id="openForm"><i class="fas fa-house-user"></i></button>
+            <img src="./img/iconoRecuperado.png" alt="icono">
+            <button id="openCalculadora"><i class="fas fa-calculator"></i></button> 
+        </header>
+        <div class="titulo">
+            <h1>Calculance</h1>
+        </div>
+        <div class="modalForm" id="modalForm">
+            <div class="formulario" id="formulario">
+                <img src="./img/imgForm.jpg" alt="R2-D2">
+                <form class="containerForm" action="" id="containerForm" method="POST">
+                    <h2>Registrate</h2> 
+                    <!-- CAMPO NOMBRE-->
+                    <div class="campoForm">
+                        <label for="nombre" >Nombres y Apellidos</label>
+                        <div class="grupo_input" id="grupo_input">
+                            <input type="text" name="nombre" id="nombre" placeholder="Ej: Sebastian Andres Berrio Murillo"/>
+                        </div>
+                        <p class="mensaje_error" id="errorNombre">Solo debe ingresar letras y espacios.</p>
+                    </div>
+                    <!-- CAMPO ID-->
+                    <div class="campoForm">
+                        <label for="identificacion" >Número de identificación</label>
+                        <div class="grupo_input">
+                            <input type="text" name="identificacion" id="identificacion" placeholder="Ej: 1234567890"/>
+                        </div>
+                        <p class="mensaje_error" id="errorId">Solo debe ingresar números, no debe ser menor a 7 digitos y mayor a 10 digitos.</p>
+                    </div>
+                    <!-- CAMPO CONTACTO-->
+                    <div class="campoForm">
+                        <label for="contacto">Número de celular</label>
+                        <div class="grupo_input">
+                            <input type="tel" name="contacto" id="contacto" placeholder="Ej: 3137591774"/>
+                        </div>
+                        <p class="mensaje_error" id="errorCel">Solo debe ingresar números (10 digitos)</p>
+                    </div>
+                    <!-- CAMPO EMAIL-->
+                    <div class="campoForm">
+                        <label for="email">Correo Electronico</label>
+                        <div class="grupo_input">
+                            <input type="email" name="email" id="email" placeholder="Ej: example@gmail.com"/>
+                        </div>
+                        <p class="mensaje_error" id="errorEmail">Introduzca un correo electronico valido</p>
+                    </div>
+                    <!-- CAMPO AREA-->
+                    <div class="campoForm">
+                        <label for="area">Area u operación</label>
+                        <div class="grupo_input">
+                            <select name="area" id="area">
+                                <option value="0"></option>
+                                <option value="1">Desarrollo y nuevas tecnologías</option>
+                                <option value="2">Sistemas e infraestructuras</option>
+                                <option value="3">Comunicaciones</option>
+                                <option value="3">Centro de atención al usuario</option>
+                            </select>
+                        </div>
+                        <p class="mensaje_error" id="errorArea">Debe seleccionar una opción</p>
+                    </div>
+                    <!-- CAMPO CARGO-->
+                    <div class="campoForm">
+                        <label for="cargo">Cargo</label>
+                        <div class="grupo_input">
+                            <select name="cargo" id="cargo">
+                                <option value="0"></option>
+                                <option value="1">Asistente de sistemas</option>
+                                <option value="2">Analista de programación</option>
+                                <option value="3">Analista de sistemas</option>
+                                <option value="3">Jefe de informática</option>
+                                <option value="4">Gerente de Informática</option>
+                            </select>
+                        </div>
+                        <p class="mensaje_error" id="errorCargo">Debe seleccionar una opción</p>
+                    </div>
+                    <!-- CAMPO UBICACION-->
+                    <div class="campoForm">
+                        <label for="ubicacion">Si necesitamos contactarte telefónicamente, <br>indicanos donde te encuentras?</label>
+                        <div class="grupo_input">
+                            <select name="ubicacion" id="ubicacion" >
+                                <option value="0"></option>
+                                <option value="1">Bogotá</option>
+                                <option value="2">Medellín</option>
+                                <option value="3">Cali</option>
+                                <option value="4">Barranquilla</option>
+                                <option value="5">cartagena</option>
+                            </select>
+                        </div>
+                        <p class="mensaje_error" id="errorUbicacion">Debe seleccionar una opción</p>
+                    </div>
+                    <!-- CAMPO HORA-->
+                    <div class="campoForm">
+                        <label for="hora">Horario en el que te podemos contactar</label><br>
+                        <div class="grupo_input">
+                            <input type="date" id="fechaInput" /><br>
+                        </div>
+                        <div class="horario" id="horario">
+                            <input type="time" id="hora1" />
+                            <span>hasta</span>
+                            <input type="time" id="hora2" />
+                        </div>
+                        <p class="mensaje_error" id="errorFecha">La fecha es incorrecta</p>
+                        <p class="mensaje_error" id="errorHora">Las horas no coinciden</p>
+                    </div>
+                    <button type="submit" id="enviar">Enviar</button>
+                </form>
+                <button id="cerrarForm">X</button>    
+            </div>
+        </div>
+        <div class="modalCalculadora" id="modalCalculadora">
+            <div class="calculadora" id="calculadora">
+                <div class="btn-salir">
+                    <h2>Calculance</h2>
+                    <button id="cerrarCalculadora">X</button>
+                </div>
+                <div class="display">
+                    <div id="valorAnterior"></div>
+                    <div id="valorActual">0</div>
+                </div>
+                <button class="col-2" onclick="calculadora.limpiar()">C</button>
+                <button onclick="calculadora.borrar()">&larr;</button>
+                <button class="operador" value="porcentaje">%</button>
+                <button class="numero">7</button>
+                <button class="numero">8</button>
+                <button class="numero">9</button>
+                <button class="operador" value="dividir">/</button>
+                <button class="numero">4</button>
+                <button class="numero">5</button>
+                <button class="numero">6</button>
+                <button class="operador" value="multiplicar">x</button>
+                <button class="numero">1</button>
+                <button class="numero">2</button>
+                <button class="numero">3</button>
+                <button class="operador" value="restar">-</button>
+                <button class="numero">.</button>
+                <button class="numero">0</button>
+                <button class="operador">=</button>
+                <button class="operador" value="sumar">+</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/Javascript" src="Validacion.js"></script>
+    <script type="text/javascript" src="Calculadora.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

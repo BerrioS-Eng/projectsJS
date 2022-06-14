@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(./img/universo3.jpg);
+    background-repeat: no-repeat;
+    background-size: 140vw 140%;
+    animation: movimiento 17s infinite linear alternate;
+    display: flex;
+    justify-content: center;
+}
+@keyframes movimiento {
+    from{
+        background-position: left top;
+    } to{ 
+        background-position: right top;
+    }
+}
+button:focus{
+    outline: none;
+}
+/************************************
+*********** NAVEGACION **************
+************************************/
+header{
+    width: 100%;
+    height: 60px;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 30px;
+    color: #fff;
+}
+.encabezado{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+.encabezado button{
+    padding: 10px;
+    background-color: rgba( 0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.encabezado img{
+    width: 100px;
+    height: 90px;
+}
+.titulo{
+    width: 100%;
+    margin: 230px auto;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+/************************************
+*********** FORMULARIO **************
+************************************/
+.modalForm{
+    background-color: rgba( 0, 0, 0, 0.7);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+
+    visibility: hidden;
+    transition: 2s ease all;
+    transform: scale(0.1);
+    opacity: 0;
+}
+.formulario{
+    margin: auto;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    background-color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 30px;
+}
+.formulario img{
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0px 5px 5px 7px rgba( 0, 0, 0, 0.7);
+}
+.containerForm{
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.containerForm h2{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    margin: 10px;
+    text-align: center;
+    color: rgb(194, 12, 12);
+    font-size: 20px;
+}
+.campoForm label{
+    padding: 0px 10px ;
+    display: block;
+    font-size: 17px;
+}
+.grupo_input{
+    padding: 0px 10px 0px 10px;
+}
+.grupo_input input, select{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+.grupo_input input:focus{
+    outline: none;
+    border-bottom: 2px solid grey;
+}
+.grupo_input select:focus {
+    outline: none;
+    border-bottom: 2px solid grey;
+}
+.mensaje_error{
+    color: red;
+    font-size: 12px;
+    visibility: hidden;
+}
+.mensaje_error-activo{
+    margin-left: 10px;
+    visibility: visible;
+}
+.horario{
+    margin-top: 5px;
+    margin-left: 15%;
+    visibility: hidden;
+}
+.horario-activo{
+    visibility: visible;
+}
+.containerForm button{
+    margin: auto;
+    grid-column: 1 / -1;
+    border-radius: 15px;
+    width: 30%;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.containerForm button:hover{
+    background-color: rgb(194, 12, 12);
+    color: #fff;
+}
+.formulario #cerrarForm{
+    height: 30px;
+    position: absolute;
+    top: 8%;
+    right: 14%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+.formulario #cerrarForm:hover{
+    background-color: rgb(194, 12, 12);
+    color: #fff;
+}
+/********* ANIMACION FORMULARIO ******/
+.activarFormulario{
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+}
+/************************************
+*********** CALCULADORA *************
+************************************/
+.modalCalculadora{
+    background-color: rgba( 0, 0, 0, 0.7);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    visibility: hidden;
+    transition: 2s ease all;
+    transform: scale(0.1);
+    opacity: 0;
+}
+.calculadora{
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: 120px repeat(5, 75px);
+    background-color: rgba( 240, 240, 240, 0.85);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+.calculadora button{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+.calculadora .col-2{
+    grid-column: span 2;
+}
+.calculadora .row-2{
+    grid-row: span 2;
+}
+.calculadora .numero{
+    background-color: #fff;
+}
+.calculadora .operador{
+    color: rgb(194, 12, 12);
+}
+.calculadora button:hover{
+    background-color: rgba( 180, 180, 180, 0.70);
+}
+.calculadora button:active{
+    background-color: rgba( 120, 120, 120, 0.70);
+}
+.calculadora .display{
+    grid-column: 1 / -1;
+    padding: 10px;
+    margin: 30px 5px 10px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-break: break-all;
+}
+#valorAnterior{
+    font-size: 25px;
+    font-weight: bold;
+}
+#valorActual{
+    font-size: 20px;
+}
+.btn-salir{
+    width: 320px;
+    padding: 0px 0px 0px 10px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-salir h2{
+    color: rgb(194, 12, 12);
+    font-weight: bold;
+}
+.btn-salir button{
+    position:absolute;
+    top: -20px;
+    right: -20px;
+    width: 30px;
+    border-radius: 50px;
+}
+.btn-salir button:hover{
+   background-color: rgb(194, 12, 12); 
+    color: #fff;
+}
+/********* ANIMACION CALCULADORA *******/
+.activarCalculadora{
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+}
+@media screen and (max-width: 910px) {
+    .formulario{
+        width: 85%;
+        height: 91%;
+    }
+    .formulario img {
+        display: none;
+    }
+    .containerForm{
+        margin: 0px auto;
+        grid-template-columns: 1fr;
+    }
+    .formulario #cerrarForm{
+        top: 3%;
+        right: 6%;
+    }
+    
+}
