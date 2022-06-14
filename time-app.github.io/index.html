@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Time App</title>
+</head>
+<body>
+    <div class="content" id="content">
+        <div class="quote">
+            <p id="textQuote"></p>
+            <em id="textAuthor">~author</em>
+        </div>
+        <div class="container">
+            <div class="containerTime" id="containerTime">
+                <div id="day"></div>
+                <div class="time" id="tiempo"></div>
+                <div class="infoTime">
+                    <div id="month"></div>
+                    <div id="year"></div>
+                </div>
+            </div>
+            <div class="containerCrono" id="containerCrono">
+                <div class="chronometer" id="chronometer">00 : 00 : 00</div>
+                <div class="btn-group">
+                    <button class="btn" id="play">&#9658</button>
+                    <button class="btn" id="stop">&#8718</button>
+                    <button class="btn" id="reset">&#8635</button>
+                </div>
+            </div>
+        </div>
+        <input class="theme" id="theme" type="button" value="Change Theme">
+    </div>
+    <script src="js/app.js" type="module"></script>
+    <script src="js/time.js"></script>
+    <script src="js/chronometer.js"></script>    
+</body>
+</html>
